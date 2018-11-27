@@ -5,15 +5,16 @@ let broadcaster;
 let server;
 let port;
 console.log('start')
+var envPort = process.env.PORT;
 if (credentials.key && credentials.cert) {
   const https = require('https');
   server = https.createServer(credentials, app);
-  port = 4431;
+  port = envPort || 4431;
 } else {
   console.log('ss')
   const http = require('http');
   server = http.createServer(app);
-  port = 3000;
+  port = envPort || 3000;
 }
 const io = require('socket.io').listen(server);
 const broadcasters = {};
@@ -50,7 +51,7 @@ io.on('connection', function (socket) {
     socket.broadcast.emit('bye', socket.id);
   });
 
-  socket.on('torch',function(){
+  socket.on('torch', function () {
     console.log('torch')
     socket.broadcast.emit('torch');
 
