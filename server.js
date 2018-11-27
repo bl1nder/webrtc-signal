@@ -16,10 +16,13 @@ if (credentials.key && credentials.cert) {
   server = http.createServer(app);
   port = envPort || 3000;
 }
+console.log('conect io');
 const io = require('socket.io').listen(server);
+console.log('after conect io');
+
 const broadcasters = {};
 app.use(express.static(__dirname + '/public'));
-io.on('error', e => console.log(e));
+io.on('error', e => console.log('io error',e));
 io.on('connection', function (socket) {
   console.log('connect')
   socket.on('broadcaster', function () {
