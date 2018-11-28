@@ -15,3 +15,18 @@ span{
 	top: 400px;
     position: absolute;	
 }
+.video-panel{
+	display:flex;
+	flex-wrap: wrap;
+}
+.video-panel__item{
+	flex:1;
+}
+.video-panel__item video{
+	border-radius: 100%;
+object-fit: cover;
+width:160px;
+height: 160px;
+transition-property: visibility;
+transition-duration: 2s;
+}

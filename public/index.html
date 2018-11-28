@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Viewer</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -7,15 +8,26 @@
 	<meta name="author" content="Brian Mau">
 	<link href="/main.css" rel="stylesheet">
 </head>
+
 <body>
-<video playsinline autoplay muted></video>
 
-<span> text</span>
+	<video playsinline autoplay muted></video>
 
-<script src="/socket.io/socket.io.js"></script>
-<script src="/adapter.js"></script>
-<script src="/index.js"></script>
-<script src="/watch.js"></script>
-<!-- <script src="/broadcast.js"></script> -->
+
+	<span> text</span>
+
+	<div class="video-panel">
+		<div class="video-panel__item">
+			<video playsinline autoplay muted></video>
+			<span class="video-info">video info</span>
+		</div>
+	</div>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/adapter.js"></script>
+	<script src="/index.js"></script>
+	<script src="/watch.js"></script>
+	<!-- <script src="/broadcast.js"></script> -->
 </body>
+
 </html>

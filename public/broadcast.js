@@ -29,9 +29,9 @@ const devices = navigator.mediaDevices.enumerateDevices().then(result => {
 		start();
 	}
 	function start() {
-		videoTrack?videoTrack.stop():null;
+		videoTrack ? videoTrack.stop() : null;
 		let deviceId = videoSelect.options[videoSelect.selectedIndex].value;
-		
+
 		const constraints = {
 			// audio: true,
 			// video: { facingMode: "user" }
@@ -62,6 +62,7 @@ const devices = navigator.mediaDevices.enumerateDevices().then(result => {
 				socket.emit('broadcaster');
 			}).catch(error => console.error(error));
 	}
+	start();
 });
 
 
@@ -98,11 +99,23 @@ socket.on('bye', function (id) {
 
 });
 socket.on('torch', function () {
-
-	videoTrack.applyConstraints({
-		advanced: [{ torch: true }]
-	})
-		.catch(e => console.log(e));
+	const settings = videoTrack.getSettings();
+	debugger
+	let state = !settings.torch;
+	// alert('Set Torch to - ' + state);
+	let param = {};
+	if (state) {
+		param = {
+			advanced: [{ torch: true }]
+		}
+	}else{
+		param = {
+			advanced: [{ torch: false }]
+		}
+	}
+	 
+	videoTrack.applyConstraints(param)
+		.catch(e => alert(e));
 
 
 })
