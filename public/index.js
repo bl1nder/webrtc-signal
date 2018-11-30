@@ -5,7 +5,7 @@ const config = { // eslint-disable-line no-unused-vars
     'urls': ['stun:stun.l.google.com:19302']
   }]
 };
-const IO_SERVER = 'window.location.origin';
+const IO_SERVER = window.location.origin;
 var socket = io.connect(IO_SERVER);
 
 const video = document.querySelector('video'); // eslint-disable-line no-unused-vars
