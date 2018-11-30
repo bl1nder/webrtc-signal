@@ -5,10 +5,9 @@ const config = { // eslint-disable-line no-unused-vars
     'urls': ['stun:stun.l.google.com:19302']
   }]
 };
-// const IO_SERVER = 'https://10.120.3.11:4431';
-const IO_SERVER = 'https://192.168.0.103:4431';
+const IO_SERVER = 'window.location.origin';
 var socket = io.connect(IO_SERVER);
-// const socket = io.connect(window.location.origin);
+
 const video = document.querySelector('video'); // eslint-disable-line no-unused-vars
 const span = document.querySelector('span'); // eslint-disable-line no-unused-vars
 
