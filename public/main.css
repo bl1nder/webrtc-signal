@@ -18,15 +18,36 @@ span{
 .video-panel{
 	display:flex;
 	flex-wrap: wrap;
+	align-content: flex-start;
 }
 .video-panel__item{
-	flex:1;
+	/* flex:1; */
 }
 .video-panel__item video{
-	border-radius: 100%;
+border-radius: 100%;
 object-fit: cover;
 width:160px;
 height: 160px;
-transition-property: visibility;
-transition-duration: 2s;
+animation: slide-up 1.6s ease;
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes slide-down {
+    100%  {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

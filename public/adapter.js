@@ -118,7 +118,7 @@ function filterIceServers(iceServers, edgeVersion) {
 
 // Determines the intersection of local and remote capabilities.
 function getCommonCapabilities(localCapabilities, remoteCapabilities) {
-  debugger;
+
   var commonCapabilities = {
     codecs: [],
     headerExtensions: [],

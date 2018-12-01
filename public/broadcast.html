@@ -9,13 +9,17 @@
 </head>
 <body>
 <video playsinline autoplay muted  ></video>
+<button id="call" style="width:100px;height:100px;">Call</button>
+<form style="display: flex;flex-direction: column;width:200px">
+  <label for="video-device">Доступные камеры:</label>
+  <select id="video-device" size="3">
+</form>
 
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <!-- <script src="/adapter.js"></script> -->
 <script src="/socket.io/socket.io.js"></script>
 <script src="/index.js"></script>
 <script src="/broadcast.js"></script>
-<select id="video-device">
 
 </select>
 </body>

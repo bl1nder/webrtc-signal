@@ -30,27 +30,30 @@ const insertVideoTag = (id, event, capabilities) => {
 
 	item.appendChild(button);
 
-	debugger;
+
 	panel.appendChild(item);
 	panel.appendChild(span);
 
 	button.onclick = () => {
-		debugger;
-		alert('click')
 		switchLight();
-	};
+    };
+    v.oncanplay = function() {
+       v.play()
+    };
 	return panel;
 }
 
 const updateVideoTag = (id, event,capabilities) => {
+
 	id=id.slice(1);
 	const selector='video-panel__item-' + id;
 	console.log(selector);
 	let panel = document.getElementById(selector);
 	let video = panel.children[0];
-	video.pause();
+    video.pause();
+    
 	video.srcObject = event.stream;
-	video.play();
+	
 
 }
 
