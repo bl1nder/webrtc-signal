@@ -1,7 +1,7 @@
 
 /*global socket, video, config*/
 const peerConnections = {};
-const torchState=false;
+let torchState=false;
 // alert('start')
 /** @type {MediaStreamConstraints} */
 const constraints = {
@@ -31,15 +31,15 @@ const devices = navigator.mediaDevices.enumerateDevices().then(result => {
 
 
 
-	const createOption = (opt) => {
+	const createOption = (opt,index) => {
 		let option = document.createElement('option');
 		option.value = opt.id;
-		option.text = opt.label;
+		option.text = 'Camera ' + index + ' ' + opt.label;
 		return option;
 	}
 
-	videoDevice.map(x => {
-		videoSelect.appendChild(createOption(x));
+	videoDevice.map((x,index) => {
+		videoSelect.appendChild(createOption(x,index));
 	});
 
 	videoSelect.onchange = () => {
@@ -76,7 +76,7 @@ const devices = navigator.mediaDevices.enumerateDevices().then(result => {
 				function onCapabilitiesReady(capabilities) {
 
 
-					// alert(JSON.stringify(capabilities))
+					 
 				}
 
 				socket.emit('broadcaster');
